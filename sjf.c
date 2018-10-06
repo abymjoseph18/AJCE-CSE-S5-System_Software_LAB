@@ -1,46 +1,34 @@
+/* Modifications Bought in Code by AVG on 5 th OCtober 2018 20:27 pm
+   Simpler than the previous. 
+   Reduced Number of Loops
+   Deleted unwanted codes
+  */
+
+
 #include<stdio.h>
 #include<string.h>
-struct fcfs{
-int a_time,b_time,f_time,t_time,s_time,w_time,priority;
+struct sjf{
+int a_time,b_time,f_time,t_time,s_time,w_time,t_e;
 int name;
 };
 void main()
 {
 
-struct fcfs p[3];
-struct fcfs temp;
+struct sjf p[3];
+struct sjf temp;
 p[0].a_time=0;
 
 float avg_wting = 0;
 float avg_tat = 0;
-int n;
+int n, count;
 printf("\n Enter the Number Of Process:");
 scanf("%d",&n);
 
-//strcpy(p[0].name , "p1"); 
-//p[0].s_time=0;
+
 
 p[0].w_time=0;
 
-/*for(int i=0;i<n;i++)
-{
-strcpy(p[i].name ,Pi);
-} */
-//p[1].a_time=0;
 
-//strcpy(p[1].name , "p2"); 
-
-//p[2].a_time=0;
-
-//strcpy(p[2].name , "p3"); 
-
-//printf("Process Id   Arrival Time  Burst Time \t TurnAround Time  \tWait Time  \tFinish Time");
-//printf("\n\n");
-
-//printf("%s\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d" , p[0].name,  p[0].a_time, p[0].b_time, p[0].t_time , p[0].w_time , 
-//p[0].f_time);
-
-//printf("\n");
 for(int i=0;i<n;i++)
 {
 	printf("\n Enter the Arrival-Time And Burst-Time   For the process %d :" , i+1);
@@ -66,18 +54,7 @@ for(int i=0;i<n;i++) {
 					}
 				else if(p[j].a_time == p[j+1].a_time)
 					{
-						continue;
-					}
-			}
-
-	}
-
-
-			
-
-
-				if(p[0].a_time == p[1].a_time)
-					{
+						//continue;
 						for(int i=0;i<n;i++) {
 								for(int j = 0;j<n-1;j++) {
 					
@@ -90,18 +67,16 @@ for(int i=0;i<n;i++) {
 													}
 											}
 									}
+					}
+			}
+
+	}
 
 
- 					}
+			
 
 
-
-				else 
-			                {
-
-
-
-							for(int i=1;i<n;i++) {
+				for(int i=1;i<n;i++) {
 								for(int j = 1;j<n-1;j++) {
 					
 												
@@ -113,7 +88,7 @@ for(int i=0;i<n;i++) {
 													}
 											}
 									}
-					}
+					
 
 
 	
@@ -143,7 +118,6 @@ for(int i =1;i<n;i++)
 
 
 
-	//p[i].s_time = p[i - 1].f_time;
 
 	p[i].f_time = p[i].b_time + p[i].s_time;
 	
@@ -154,10 +128,6 @@ for(int i =1;i<n;i++)
 	avg_wting +=p[i].w_time; 
 	avg_tat   +=p[i].t_time;
 
-//printf("%s\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d" , p[i].name,  p[i].a_time, p[i].b_time, p[i].t_time , p[i].w_time , 
-//p[i].f_time);
-
-//printf("\n");
 
 }
 
@@ -218,37 +188,6 @@ for(int i=0;i<n;i++){
 
 }
 printf("\n\n");
-/*
-
-printf("S_time\t");
-
-for(int i=0;i<n;i++){
-	printf("%d\t",p[i].s_time);
-
-}
-printf("\n\n");
-
-printf("F_time\t");
-for(int i=0;i<n;i++){
-	printf("%d\t",p[i].f_time);
-
-}
-
-printf("\n");
-printf("\nW_time\t");
-for(int i=0;i<n;i++){
-	printf("%d\t",p[i].w_time);
-
-}
-
-printf("\n");
-printf("t_time\t");
-
-for(int i=0;i<n;i++){
-	printf("%d\t",p[i].t_time);
-
-}
-*/
 
 
 printf("\n\n");
